@@ -1,0 +1,223 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'D-DIN';
+    src: url('https://fonts.cdnfonts.com/s/15011/D-DIN.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'D-DIN-Bold';
+    src: url('https://fonts.cdnfonts.com/s/15011/D-DIN-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  body {
+    @apply bg-black text-white font-sans antialiased uppercase;
+    min-height: 100vh;
+    direction: ltr;
+    margin: 0;
+    padding: 0;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold uppercase tracking-wide;
+  }
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+}
+
+@layer components {
+  /* ── Primary Ghost Button ─────────────────────────────── */
+  .btn-ghost {
+    background-color: transparent;
+    color: #e8e8f0;
+    padding: 16px 28px;
+    border-radius: 0px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    transition: all 350ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .btn-ghost:hover {
+    background-color: rgba(77, 155, 255, 0.08);
+    border-color: rgba(77, 155, 255, 0.5);
+    color: #7bb8ff;
+    box-shadow: 0 0 20px rgba(77, 155, 255, 0.08);
+  }
+
+  /* ── Accent Button ────────────────────────────────────── */
+  .btn-accent {
+    background-color: #4d9bff;
+    color: #000000;
+    padding: 16px 28px;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    transition: all 350ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .btn-accent:hover {
+    background-color: #7bb8ff;
+    box-shadow: 0 0 30px rgba(77, 155, 255, 0.25);
+  }
+
+  /* ── Input Base ───────────────────────────────────────── */
+  .input-base {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #e8e8f0;
+    padding: 16px;
+    outline: none;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    font-size: 12px;
+    transition: border-color 300ms, box-shadow 300ms;
+  }
+  .input-base:focus {
+    border-color: rgba(77, 155, 255, 0.5);
+    box-shadow: 0 0 12px rgba(77, 155, 255, 0.06);
+  }
+  .input-base::placeholder {
+    color: rgba(255, 255, 255, 0.15);
+  }
+}
+
+/* ── Intro Animations ────────────────────────────────────── */
+.intro-reveal {
+  overflow: hidden;
+}
+.intro-text {
+  display: block;
+  transform: translateY(110%);
+  animation: introReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes introReveal {
+  to { transform: translateY(0); }
+}
+
+/* ── Scrollbar ───────────────────────────────────────────── */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(77, 155, 255, 0.2); border-radius: 100px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(77, 155, 255, 0.4); }
+
+/* ── Page Transitions ────────────────────────────────────────────────────────── */
+.page-enter {
+  animation: pageIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Micro-animations ────────────────────────────────────────────────────────── */
+
+/* Hover lift on interactive cards */
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Accent glow pulse (for live indicators) */
+.pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+@keyframes pulseGlow {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(77, 155, 255, 0.4); }
+  50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(77, 155, 255, 0); }
+}
+
+/* Shimmer loading effect */
+.shimmer {
+  background: linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.07) 50%, rgba(255,255,255,0.03) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.8s infinite;
+}
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Fade-in-up for staggered list items */
+.fade-up {
+  animation: fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Stagger delays for lists */
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.10s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.20s; }
+.stagger-5 { animation-delay: 0.25s; }
+
+/* Underline slide-in for nav links */
+.nav-underline {
+  position: relative;
+}
+.nav-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #4d9bff;
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.nav-underline:hover::after { width: 100%; }
+
+/* Accent border grow on inputs */
+input, textarea, select {
+  transition: border-color 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+/* Button press effect */
+button:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+/* Smooth all transitions globally */
+a, button {
+  transition-property: color, background-color, border-color, opacity, transform;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
+}
+
+/* ── Selection ───────────────────────────────────────────── */
+::selection {
+  background: rgba(77, 155, 255, 0.3);
+  color: #ffffff;
+}

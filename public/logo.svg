@@ -1,0 +1,22 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" fill="none">
+
+  <!-- Main E Shape (Centered & Balanced) -->
+  <path d="M60 60C60 40 80 30 100 30C125 30 145 50 145 75C145 100 125 120 100 120H70V100H100C115 100 125 90 125 75C125 60 115 50 100 50C90 50 85 53 80 60H100V75H60V60Z" fill="#F9FAFB"/>
+
+  <!-- Calendar (Centered inside E) -->
+  <rect x="80" y="70" width="40" height="28" rx="6" fill="none" stroke="#F9FAFB" stroke-width="2"/>
+  <line x1="80" y1="80" x2="120" y2="80" stroke="#F9FAFB" stroke-width="2"/>
+  <circle cx="90" cy="90" r="2" fill="#F9FAFB"/>
+  <circle cx="100" cy="90" r="2" fill="#F9FAFB"/>
+  <circle cx="110" cy="90" r="2" fill="#F9FAFB"/>
+
+  <!-- Check Mark (Aligned better) -->
+  <circle cx="130" cy="105" r="9" fill="#22C55E"/>
+  <path d="M126 105L129 108L134 100" stroke="white" stroke-width="2" fill="none"/>
+
+  <!-- Text -->
+  <text x="100" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" fill="#F9FAFB">
+    Elite
+  </text>
+
+</svg>
